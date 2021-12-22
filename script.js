@@ -10,9 +10,11 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let matchCount = 0;
+let stepCount = 0;
 
 function reset() {
   matchCount = 0;
+  stepCount = 0;
 }
 
 function flipCard() {
@@ -39,6 +41,9 @@ function flipCard() {
     return;
   }
 
+  stepCount++;
+  console.log('stepCount ' + stepCount);
+  document.getElementById("text").innerHTML = stepCount + "步...";
   secondCard = this;
 
   checkForMatch();
@@ -57,7 +62,7 @@ function checkForMatch() {
     if (matchCount >= 6) { // win
       setTimeout(() => { winAudio.play(); }, 450);
       
-      text.innerHTML = '你贏了 !!!'
+      text.innerHTML = '你贏了 !!! 花了' + stepCount + '步'
       document.getElementById("start-btn").disabled = false;
       document.getElementById("start-btn").innerHTML = '重新開始遊戲';
     } else {
