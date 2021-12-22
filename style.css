@@ -29,7 +29,7 @@ h1 {
 
 button {
   width: calc(25% - 10px);
-  height: 80px;
+  height: 40px;
   margin: 5px;
   font-size: 1.17em;
   position: relative;
